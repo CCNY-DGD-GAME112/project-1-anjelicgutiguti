@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class pitol : MonoBehaviour
+public class pistol : MonoBehaviour
 {
     public Transform firepoint;
-    public bb BulletPrefab;
+    public BULLET bulletPrefab;
 
-    public float fireCooldown = 2;
+    public float fireCooldown = .2f;
     float cooldownTimer = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,10 +22,15 @@ public class pitol : MonoBehaviour
 
     public void TryShoot()
     {
-        if (cooldownTimer < 0) return;
+        if (cooldownTimer < 0)
+        {
+            return;
+        }
+
         cooldownTimer = fireCooldown;
-        bb Bullet = Instantiate(BulletPrefab, firepoint.position, firepoint.rotation);
-        Bullet.Launch(firepoint.right);
+
+        BULLET bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        bullet.Launch(firepoint.right);
     }
     
 }

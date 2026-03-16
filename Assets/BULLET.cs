@@ -1,19 +1,19 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class bb : MonoBehaviour
+public class BULLET: MonoBehaviour
 
 {
     public float speed = 12;
-    public float Lifetime = 2;
+    public float lifetime = 2;
     public LayerMask hitLayers; 
 
-    Rigidbody rb;
+    private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, Lifetime);
+        rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, lifetime);
     }
 
     public void Launch(Vector2 direction)
